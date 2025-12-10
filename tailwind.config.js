@@ -20,9 +20,13 @@ module.exports = {
         },
         alt: "#E5C3C0",
 
-        // Status colors
-        success: "#00FF00",
-        error: "#FF0000",
+        // Status colors (extracted from your Figma)
+        status: {
+          completed: "#10B981",
+          blocked: "#EF4444",
+          "in-progress": "#3B82F6",
+          "to-do": "#6B7280",
+        },
 
         // Base colors
         white: "#FFFFFF",
@@ -45,7 +49,6 @@ module.exports = {
         sans: ["Inter", "system-ui", "sans-serif"],
       },
       fontSize: {
-        // Custom line heights based on your Figma spec
         xs: ["0.75rem", { lineHeight: "1" }], // 12px
         sm: ["0.875rem", { lineHeight: "1" }], // 14px
         base: ["1rem", { lineHeight: "1.3" }], // 16px

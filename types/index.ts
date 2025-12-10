@@ -1,10 +1,27 @@
+export interface TeamMember {
+  id: string;
+  name: string;
+  department: string;
+  avatar: string;
+}
+
 export interface Task {
   id: string;
   title: string;
   status: "completed" | "in-progress" | "blocked" | "to-do";
-  assignee: string;
+  dateCreated: Date;
+  deadline: Date;
+  assignees: string[]; // Array of TeamMember IDs
   department: string;
-  createdAt: Date;
+}
+
+export interface ActivityItem {
+  id: string;
+  user: TeamMember;
+  action: string;
+  task: string;
+  status: Task["status"];
+  timestamp: Date;
 }
 
 export interface KPI {
@@ -14,17 +31,6 @@ export interface KPI {
   change?: number; // percentage change
   trend?: "up" | "down";
   subtitle?: string;
-}
-
-export interface ActivityItem {
-  id: string;
-  user: {
-    name: string;
-    avatar: string;
-    department: string;
-  };
-  action: string;
-  task: string;
-  status: Task["status"];
-  timestamp: Date;
+  type: "progress" | "number" | "percentage";
+  progress?: number; // For progress type
 }
