@@ -4,7 +4,11 @@ import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 
-export function ThemeToggle() {
+interface ThemeToggleProps {
+  iconOnly?: boolean;
+}
+
+export function ThemeToggle({ iconOnly = false }: ThemeToggleProps) {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
 
@@ -16,9 +20,9 @@ export function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <Button variant="ghost" size="sm" className="gap-2">
+      <Button variant="ghost" size="sm" className="gap-2 w-full justify-start">
         <SunIcon className="h-5 w-5" />
-        <span className="hidden sm:inline">Toggle Light Mode</span>
+        {!iconOnly && <span>Toggle Light Mode</span>}
       </Button>
     );
   }
@@ -28,17 +32,19 @@ export function ThemeToggle() {
       variant="ghost"
       size="sm"
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="gap-2"
+      className={
+        iconOnly ? "gap-0 w-full justify-center" : "gap-2 w-full justify-start"
+      }
     >
       {theme === "dark" ? (
         <>
           <SunIcon className="h-5 w-5" />
-          <span className="hidden sm:inline">Toggle Light Mode</span>
+          {!iconOnly && <span>Toggle Light Mode</span>}
         </>
       ) : (
         <>
           <MoonIcon className="h-5 w-5" />
-          <span className="hidden sm:inline">Toggle Dark Mode</span>
+          {!iconOnly && <span>Toggle Dark Mode</span>}
         </>
       )}
     </Button>

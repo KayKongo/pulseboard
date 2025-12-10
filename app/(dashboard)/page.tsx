@@ -1,96 +1,44 @@
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
-import { Avatar, AvatarGroup } from "@/components/ui/avatar";
-import { ThemeToggle } from "@/components/theme-toggle";
-import { teamMembers } from "@/lib/constants";
-
 export default function DashboardPage() {
-  const testAvatars = teamMembers.slice(0, 7).map((member) => ({
-    src: member.avatar,
-    alt: member.name,
-  }));
-
   return (
-    <div className="min-h-screen bg-background p-8 space-y-8">
-      {/* Theme Toggle */}
-      <div className="flex justify-end">
-        <ThemeToggle />
+    <div className="space-y-6">
+      {/* Page Header */}
+      <div>
+        <h1 className="text-3xl font-bold text-foreground">
+          Welcome back, Ama
+        </h1>
+        <p className="text-sm text-muted-foreground mt-1">
+          Track, manage and forecast your team&apos;s activity and productivity
+        </p>
       </div>
 
-      <div className="space-y-8">
-        <h1 className="text-4xl font-bold text-primary">
-          Phase 1 Component Test
-        </h1>
-
-        {/* Button Variants */}
-        <div className="space-y-4">
-          <h2 className="text-2xl font-semibold">Buttons</h2>
-          <div className="flex flex-wrap gap-4">
-            <Button variant="primary">Primary Button</Button>
-            <Button variant="secondary">Secondary Button</Button>
-            <Button variant="ghost">Ghost Button</Button>
-            <Button variant="outline">Outline Button</Button>
+      {/* Placeholder for KPI Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {[1, 2, 3].map((i) => (
+          <div
+            key={i}
+            className="h-40 bg-card border border-border rounded-xl flex items-center justify-center"
+          >
+            <p className="text-muted-foreground">KPI Card {i}</p>
           </div>
-          <div className="flex flex-wrap gap-4">
-            <Button variant="primary" size="sm">
-              Small
-            </Button>
-            <Button variant="primary" size="md">
-              Medium
-            </Button>
-            <Button variant="primary" size="lg">
-              Large
-            </Button>
+        ))}
+      </div>
+
+      {/* Placeholder for Charts */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {[1, 2].map((i) => (
+          <div
+            key={i}
+            className="h-64 bg-card border border-border rounded-xl flex items-center justify-center"
+          >
+            <p className="text-muted-foreground">Chart {i}</p>
           </div>
-        </div>
+        ))}
+      </div>
 
-        {/* Badge Variants */}
-        <div className="space-y-4">
-          <h2 className="text-2xl font-semibold">Status Badges</h2>
-          <div className="flex flex-wrap gap-3">
-            <Badge variant="completed">Completed</Badge>
-            <Badge variant="blocked">Blocked</Badge>
-            <Badge variant="in-progress">In Progress</Badge>
-            <Badge variant="to-do">To Do</Badge>
-            <Badge variant="default">Default</Badge>
-          </div>
-        </div>
-
-        {/* Input */}
-        <div className="space-y-4">
-          <h2 className="text-2xl font-semibold">Input</h2>
-          <Input placeholder="Search tasks..." className="max-w-md" />
-        </div>
-
-        {/* Avatars */}
-        <div className="space-y-4">
-          <h2 className="text-2xl font-semibold">Avatars</h2>
-          <div className="flex flex-wrap gap-4 items-center">
-            <Avatar
-              src={teamMembers[0].avatar}
-              alt={teamMembers[0].name}
-              size="sm"
-            />
-            <Avatar
-              src={teamMembers[1].avatar}
-              alt={teamMembers[1].name}
-              size="md"
-            />
-            <Avatar
-              src={teamMembers[2].avatar}
-              alt={teamMembers[2].name}
-              size="lg"
-            />
-            <Avatar fallback="JD" size="md" />
-          </div>
-        </div>
-
-        {/* Avatar Group */}
-        <div className="space-y-4">
-          <h2 className="text-2xl font-semibold">Avatar Group (Stacked)</h2>
-          <AvatarGroup avatars={testAvatars} max={5} size="sm" />
-        </div>
+      {/* Placeholder for Recent Activity */}
+      <div className="bg-card border border-border rounded-xl p-6">
+        <h2 className="text-xl font-semibold mb-4">Recent Activity</h2>
+        <p className="text-muted-foreground">Activity items coming soon...</p>
       </div>
     </div>
   );
