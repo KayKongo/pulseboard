@@ -1,4 +1,13 @@
+"use client";
+
+import { TaskTable } from "@/components/tasks";
+import { tasks } from "@/lib/constants";
+
 export default function TasksPage() {
+  const handleAddTask = () => {
+    console.log("Add task clicked - Modal will open in Phase 5");
+  };
+
   return (
     <div className="space-y-6">
       {/* Page Header */}
@@ -9,10 +18,8 @@ export default function TasksPage() {
         </p>
       </div>
 
-      {/* Placeholder for Table */}
-      <div className="bg-card border border-border rounded-xl p-8 min-h-[500px] flex items-center justify-center">
-        <p className="text-muted-foreground">Task Table Coming in Phase 4</p>
-      </div>
+      {/* Task Table */}
+      <TaskTable tasks={tasks} onAddTask={handleAddTask} />
     </div>
   );
 }
