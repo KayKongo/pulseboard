@@ -15,13 +15,34 @@ import {
   //   Legend,
 } from "recharts";
 
-interface ChartCardProps {
-  title: string;
-  subtitle?: string;
-  type: "line" | "pie";
-  data: any[];
-  className?: string;
+interface LineChartData {
+  name: string;
+  value: number;
+  [key: string]: string | number;
 }
+
+interface PieChartData {
+  name: string;
+  value: number;
+  color?: string;
+  [key: string]: string | number | undefined;
+}
+
+type ChartCardProps =
+  | {
+      title: string;
+      subtitle?: string;
+      type: "line";
+      data: LineChartData[];
+      className?: string;
+    }
+  | {
+      title: string;
+      subtitle?: string;
+      type: "pie";
+      data: PieChartData[];
+      className?: string;
+    };
 
 export function ChartCard({
   title,
@@ -103,7 +124,7 @@ export function ChartCard({
                 dataKey="members"
               >
                 {data.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={entry.fill} />
+                  <Cell key={`cell-${index}`} fill={entry.fill as string} />
                 ))}
               </Pie>
               <Tooltip
@@ -123,7 +144,7 @@ export function ChartCard({
               <div key={index} className="flex items-center gap-2">
                 <div
                   className="h-3 w-3 rounded-full"
-                  style={{ backgroundColor: entry.fill }}
+                  style={{ backgroundColor: entry.fill as string }}
                 />
                 <span className="text-sm text-muted-foreground">
                   {entry.department}

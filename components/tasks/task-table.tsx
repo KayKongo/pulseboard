@@ -56,9 +56,7 @@ export function TaskTable({ tasks, onAddTask }: TaskTableProps) {
       // Handle strings
       if (typeof aValue === "string") {
         aValue = aValue.toLowerCase();
-      }
-
-      if (typeof bValue === "string") {
+      } else if (typeof bValue === "string") {
         bValue = bValue.toLowerCase();
       }
 
