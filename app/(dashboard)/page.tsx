@@ -14,7 +14,7 @@ export default function DashboardPage() {
         <h1 className="text-3xl font-bold text-foreground">
           Welcome back, Ama
         </h1>
-        <p className="text-sm text-muted-foreground mt-1">
+        <p className="text-sm text-muted-foreground mt-2">
           Track, manage and forecast your team&apos;s activity and productivity
         </p>
       </div>

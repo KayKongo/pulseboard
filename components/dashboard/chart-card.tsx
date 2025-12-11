@@ -12,20 +12,21 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
-  //   Legend,
 } from "recharts";
 
+// Line chart data with index signature for Recharts compatibility
 interface LineChartData {
-  name: string;
-  value: number;
-  [key: string]: string | number;
+  month: string;
+  tasks: number;
+  [key: string]: string | number; // Index signature for Recharts
 }
 
+// Pie chart data with index signature for Recharts compatibility
 interface PieChartData {
-  name: string;
-  value: number;
-  color?: string;
-  [key: string]: string | number | undefined;
+  department: string;
+  members: number;
+  fill: string;
+  [key: string]: string | number; // Index signature for Recharts
 }
 
 type ChartCardProps =
@@ -57,7 +58,7 @@ export function ChartCard({
     >
       {/* Header */}
       <div className="mb-6">
-        <h3 className="text-sm text-secondary font-semibold">{title}</h3>
+        <h3 className="text-base font-semibold text-foreground">{title}</h3>
         {subtitle && (
           <p className="text-sm text-secondary mt-1 flex items-center gap-1.5">
             <CheckCircleIcon className="h-4 w-4" />
@@ -124,7 +125,7 @@ export function ChartCard({
                 dataKey="members"
               >
                 {data.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={entry.fill as string} />
+                  <Cell key={`cell-${index}`} fill={entry.fill} />
                 ))}
               </Pie>
               <Tooltip
@@ -144,7 +145,7 @@ export function ChartCard({
               <div key={index} className="flex items-center gap-2">
                 <div
                   className="h-3 w-3 rounded-full"
-                  style={{ backgroundColor: entry.fill as string }}
+                  style={{ backgroundColor: entry.fill }}
                 />
                 <span className="text-sm text-muted-foreground">
                   {entry.department}
@@ -157,12 +158,12 @@ export function ChartCard({
 
       {/* Bottom Label */}
       {type === "line" && (
-        <p className="text-md text-center text-secondary mt-4 font-medium">
+        <p className="text-xs text-center text-secondary mt-4 font-medium">
           Months
         </p>
       )}
       {type === "pie" && (
-        <p className="text-md text-center text-secondary mt-6 font-medium">
+        <p className="text-sm text-center text-secondary mt-6 font-medium">
           Teams and their departments
         </p>
       )}

@@ -87,11 +87,12 @@ export function TaskTable({ tasks, onAddTask }: TaskTableProps) {
     }
   };
 
-  // Handle filter toggle
-  const handleFilterToggle = (status: Task["status"]) => {
-    setStatusFilter(statusFilter === status ? "all" : status);
-    setCurrentPage(1); // Reset to first page
-  };
+  // // Handle filter toggle
+
+  // const handleFilterToggle = (status: Task["status"]) => {
+  //   setStatusFilter(statusFilter === status ? "all" : status);
+  //   setCurrentPage(1); // Reset to first page
+  // };
 
   return (
     <div className="space-y-6">
