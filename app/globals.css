@@ -34,3 +34,84 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
+
+/* Polishing up */
+
+@layer utilities {
+  /* Smooth transitions */
+  .transition-smooth {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .transition-smooth-slow {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Animation keyframes */
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s infinite linear;
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      transparent 100%
+    );
+    background-size: 1000px 100%;
+  }
+
+  /* Fade in animations */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out;
+  }
+
+  /* Staggered fade in for lists */
+  .animate-fade-in-stagger > * {
+    opacity: 0;
+    animation: fade-in 0.4s ease-out forwards;
+  }
+
+  .animate-fade-in-stagger > *:nth-child(1) {
+    animation-delay: 0.05s;
+  }
+  .animate-fade-in-stagger > *:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+  .animate-fade-in-stagger > *:nth-child(3) {
+    animation-delay: 0.15s;
+  }
+  .animate-fade-in-stagger > *:nth-child(4) {
+    animation-delay: 0.2s;
+  }
+  .animate-fade-in-stagger > *:nth-child(5) {
+    animation-delay: 0.25s;
+  }
+  .animate-fade-in-stagger > *:nth-child(6) {
+    animation-delay: 0.3s;
+  }
+  .animate-fade-in-stagger > *:nth-child(7) {
+    animation-delay: 0.35s;
+  }
+  .animate-fade-in-stagger > *:nth-child(8) {
+    animation-delay: 0.4s;
+  }
+}

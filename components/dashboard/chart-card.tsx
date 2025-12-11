@@ -58,10 +58,9 @@ export function ChartCard({
     >
       {/* Header */}
       <div className="mb-6">
-        <h3 className="text-base font-semibold text-foreground">{title}</h3>
+        <h3 className="text-sm font-semibold text-secondary">{title}</h3>
         {subtitle && (
-          <p className="text-sm text-secondary mt-1 flex items-center gap-1.5">
-            <CheckCircleIcon className="h-4 w-4" />
+          <p className="text- font-semibold text-secondary mt-1 flex items-center gap-1.5">
             {subtitle}
           </p>
         )}
@@ -158,34 +157,15 @@ export function ChartCard({
 
       {/* Bottom Label */}
       {type === "line" && (
-        <p className="text-xs text-center text-secondary mt-4 font-medium">
+        <p className="text-base text-center text-secondary mt-4 font-medium">
           Months
         </p>
       )}
       {type === "pie" && (
-        <p className="text-sm text-center text-secondary mt-6 font-medium">
+        <p className="text-base text-center text-secondary mt-6 font-medium">
           Teams and their departments
         </p>
       )}
     </div>
-  );
-}
-
-function CheckCircleIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={2}
-      stroke="currentColor"
-      className={className}
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-      />
-    </svg>
   );
 }
